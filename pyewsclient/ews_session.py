@@ -18,6 +18,7 @@ import os;
 import sys;
 import datetime;
 import traceback;
+
 import requests;
 from requests.auth import HTTPBasicAuth;
 from lxml import etree;
@@ -423,7 +424,7 @@ class EWSSession:
         
         #QCC
         host_url='mail.qcc.cuny.edu'
-        self.server='http://'+host_url+'/EWS/Exchange.asmx'
+        self.server='https://'+host_url+'/EWS/Exchange.asmx'
         return;
         
     def submit(self, ews_req=None, ews_stage=None):
@@ -462,6 +463,8 @@ class EWSSession:
             ews_resp_headers = ews_resp.getheaders();
             ews_resp_body = self._ews_remove_xml_header(ews_resp.read().decode("utf-8"));
             ews_conn.close();
+            # KWANG
+            ews_url = self.server 
         except Exception as err:
             self._log(str(err), 'CRIT');
             self._log(str(traceback.format_exc()), 'CRIT');
