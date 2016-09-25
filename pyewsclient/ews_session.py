@@ -423,8 +423,7 @@ class EWSSession:
 '''            
         
         #QCC
-        host_url='mail.qcc.cuny.edu'
-        self.server='https://'+host_url+'/EWS/Exchange.asmx'
+        //self.server='https://mail.qcc.cuny.edu/EWS/Exchange.asmx'
         return;
         
     def submit(self, ews_req=None, ews_stage=None):
