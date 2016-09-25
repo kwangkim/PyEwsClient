@@ -286,7 +286,7 @@ class EWSSession:
           http://download.microsoft.com/download/5/D/D/5DD33FDF-91F5-496D-9884-0A0B0EE698BB/%5BMS-OXDSCLI%5D.pdf
 
         Importantly, HTTP Location header in HTTP 302 Redirect points to EWS Endpoint!
-
+        '''
         if self.verbose >= 4:
             self._log( 'Autodiscovery On', 'INFO');
 
@@ -419,10 +419,7 @@ class EWSSession:
         else:
             self.server = None;
             return;
-        '''            
-        
-        #QCC
-        # self.server='https://mail.qcc.cuny.edu/EWS/Exchange.asmx'
+            
         return;
         
     def submit(self, ews_req=None, ews_stage=None):
