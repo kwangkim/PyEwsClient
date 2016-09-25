@@ -479,9 +479,13 @@ class EWSSession:
             return;
 
         if isinstance(ews_resp_body, str):
+            #KWANG
+            print("length:"+len(ews_resp_body))
+            '''
             if len(ews_resp_body) < 20:
                 self._log(ews_url + ' text-based output is too short', 'ERROR');
                 return;
+            '''     
         else:
             self._log(ews_url + ' does not respond with text-based output', 'ERROR');
             return;
