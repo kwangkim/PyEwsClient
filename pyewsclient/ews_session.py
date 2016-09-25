@@ -286,7 +286,7 @@ class EWSSession:
 
         Importantly, HTTP Location header in HTTP 302 Redirect points to EWS Endpoint!
         '''
-
+'''
         if self.verbose >= 4:
             self._log( 'Autodiscovery On', 'INFO');
 
@@ -301,7 +301,11 @@ class EWSSession:
             self._log('failed ews xml schema validation for autodiscovery', 'ERROR');
             self._exit(1);
 
+        # office 365 code
         autod_url = 'https://autodiscover-s.outlook.com/autodiscover/autodiscover.xml';
+        
+        # EX https://msdn.microsoft.com/en-us/library/office/jj900169(v=exchg.150).aspx
+        
         autod_params = urllib.parse.urlencode({'test1': 123456, '@test2': 'test2', '@test3': 'test3'});
         autod_headers = {'User-Agent': str(self.user_agent),
                          'X-MapiHttpCapability': '1',
@@ -415,8 +419,13 @@ class EWSSession:
         else:
             self.server = None;
             return;
-
-
+'''            
+        
+        #QCC
+        host_url='mail.qcc.cuny.edu'
+        self.server='http://'+host_url+'/EWS/Exchange.asmx'
+        return;
+        
     def submit(self, ews_req=None, ews_stage=None):
 
         if (ews_stage == 'attachment' or ews_stage == 'send_and_save') and (self.id is None or self.changekey is None):
