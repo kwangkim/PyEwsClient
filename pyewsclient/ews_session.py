@@ -459,6 +459,8 @@ class EWSSession:
             ews_resp_body = self._ews_remove_xml_header(ews_resp.read().decode("utf-8"));
             ews_conn.close();
             # KWANG
+            print("ews_resp_body");
+            print(ews_resp_body);
             ews_url = self.server 
         except Exception as err:
             self._log(str(err), 'CRIT');
