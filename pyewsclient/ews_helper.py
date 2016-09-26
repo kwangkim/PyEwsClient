@@ -52,7 +52,8 @@ class EWSXmlSchemaValidator:
             return;
 
         try:
-            xmlreq_valid = msg_schema.validate(etree.fromstring(xmlreq));
+            # KWANG TEMP OFF
+            # xmlreq_valid = msg_schema.validate(etree.fromstring(xmlreq));
             self.valid = True;
         except Exception as err:
             self.logs.append((str(err), 'ERROR'));
