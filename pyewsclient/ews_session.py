@@ -456,6 +456,9 @@ class EWSSession:
             ews_conn.request("POST", self._ews_urlsplit('path', self.server), ews_req, ews_headers);
             ews_resp = ews_conn.getresponse();
             ews_resp_headers = ews_resp.getheaders();
+            #KWANG
+            print('ews_resp.read()');
+            print(ews_resp.read());
             ews_resp_body = self._ews_remove_xml_header(ews_resp.read().decode("utf-8"));
             ews_conn.close();
             # KWANG
